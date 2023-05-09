@@ -1,0 +1,25 @@
+Heating
+&cntrl
+imin=0,
+ntx=1,
+irest=0,
+nstlim=30000,
+dt=0.001,
+ntf=2,
+ntc=2,
+tempi=0.0,
+temp0=1000.0,
+ntpr=100,
+ntwx=100,
+cut=999,
+ntb=0,
+ntp=0,
+ntt=3,
+gamma_ln=2.0,
+nmropt=1,
+ig=-1,
+/
+&wt type='TEMP0', istep1=0, istep2=18000, value1=0.0, value2=1000.0 /
+&wt type='TEMP0', istep1=18001, istep2=30000, value1=1000.0, value2=1000.0 /
+&wt type='END' /
+

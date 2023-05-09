@@ -1,0 +1,3 @@
+parm /home/zstichter/prepBasics/phoenixData/exactCopy/inputStream/1F6M_l_u.prmtop
+trajin /home/zstichter/prepBasics/phoenixData/exactCopy/outputStream_2023-01-16_16-19-11/1F6M-3/5/o4-05_Prod.mdcrd 71 71
+trajout /home/zstichter/prepBasics/phoenixData/exactCopy/outputStream_2023-01-16_16-19-11/1F6M-1/trajAnalysis/bestFrame_3-2.pdb 

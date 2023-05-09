@@ -1,0 +1,33 @@
+#! /bin/bash
+
+#PBS -M zachary.stichter073@topper.wku.edu
+#PBS -m e
+#PBS -j oe
+
+molid=$1
+cwd=$2
+tdd="/home/zstichter/tagdock/tagdock"
+tda="${cwd}tdAnalysis/"
+
+mkdir ${tda}
+mkdir ${tda}${molid}/
+cd ${tda}${molid}
+
+mol1="${cwd}bestFrame_1-1.pdb"
+mol2="/home/zstichter/prepBasics/tagDock/exactCopy/processedStructures/1F6M/1F6M_r_u_tagdock.pdb"
+rest="/home/zstichter/prepBasics/tagDock/exactCopy/processedRests/1F6M.txt"
+nd="500000"
+mat="${tda}${molid}/${molid}_decoys.mat"
+rst="${tda}${molid}/${molid}_result.txt"
+rc="100"
+step="/home/zstichter/prepBasics/tagDock/exactCopy/processedRests/multires.txt"
+thisStep="/home/zstichter/prepBasics/tagDock/exactCopy/processedRests/multires${molid}.txt"
+cp ${step} ${thisStep}
+
+touch ${rst}
+
+${tdd} -m1 ${mol1} -m2 ${mol2} -rest ${rest} -nd ${nd} -mat ${mat} | tee ${rst}
+
+${tdd} -m1 ${mol1} -m2 ${mol2} -rest ${rest} -nd ${nd} -mat ${mat} -refinecount ${rc} -refinesteps ${thisStep} | tee ${rst}
+
+rm ${thisStep}
